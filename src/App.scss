@@ -1,4 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Istok+Web:wght@400;700&display=swap');
 $backgrund: #e4e1e1d7;
+* {
+    font-family: 'Comfortaa', cursive;
+}
+
 .content {
     background-color: $backgrund;
 }
@@ -39,6 +45,23 @@ $backgrund: #e4e1e1d7;
     }
     to {
         transform: rotate(360deg);
+    }
+}
+
+nav {
+    .navbar-nav {
+        .nav-item {
+            margin: 0 70px;
+            .nav-link {
+                font-family: 'Istok Web', sans-serif;
+                font-size: 1.5em;
+                font-weight: bold;
+                &:hover {
+                    font-weight: bolder;
+                    color: rgb(112, 80, 255)!important;
+                }
+            }
+        }
     }
 }
 
