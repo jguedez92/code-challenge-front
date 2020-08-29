@@ -1,18 +1,22 @@
 import React, { Fragment } from 'react'
-import './App.scss';
-
 import { BrowserRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 
+import './App.scss';
+import 'antd/dist/antd.css';
+
+
+import Navbar from './components/Navbar'
 import Views from './views/Views'
 
-const App = ({user}) => {
+const App = () => {
   return (
-      <Fragment>
-        <BrowserRouter>
-          <Views/>
-        </BrowserRouter>  
-      </Fragment> 
+    <Fragment>
+      <BrowserRouter>
+        <Navbar />
+        <Views />
+      </BrowserRouter>
+    </Fragment>
   )
 }
 
