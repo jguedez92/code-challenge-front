@@ -1,3 +1,8 @@
+$backgrund: #e4e1e1d7;
+.content {
+    background-color: $backgrund;
+}
+
 .App {
     text-align: center;
 }
@@ -35,4 +40,8 @@
     to {
         transform: rotate(360deg);
     }
+}
+
+.card-width {
+    width: 50vh;
 }

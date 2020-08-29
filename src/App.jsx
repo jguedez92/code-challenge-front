@@ -14,7 +14,9 @@ const App = () => {
     <Fragment>
       <BrowserRouter>
         <Navbar />
-        <Views />
+        <div className="content">
+          <Views />
+        </div>
       </BrowserRouter>
     </Fragment>
   )
