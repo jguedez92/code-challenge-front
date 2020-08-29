@@ -1,12 +1,12 @@
-import user from "./user";
-import products from "./product";
-import orders from "./order";
+import users from "./Users";
+import posts from "./Posts";
+import comments from "./Comments";
 import { combineReducers } from 'redux';
 
 const rootReducer = combineReducers({
-    user,
-    products,
-    orders
+    users,
+    posts,
+    comments
 });
 
 export default rootReducer;

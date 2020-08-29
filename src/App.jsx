@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react'
 import { BrowserRouter } from 'react-router-dom'
-import { connect } from 'react-redux'
 
 import './App.scss';
 import 'antd/dist/antd.css';

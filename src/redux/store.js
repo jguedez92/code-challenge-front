@@ -1,16 +1,16 @@
 import { createStore, compose, applyMiddleware } from 'redux';
-import rootReducer from './reducers';
+import reducer from './reducers/index.js';
 import { save, load } from 'redux-localstorage-simple';
 const composeEnhancers =
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const createStoreWithMiddleware = applyMiddleware(
-    save(),
+    save(), // Saving done here
 )(createStore);
 
 const store = createStoreWithMiddleware(
-    rootReducer,
-    load(),
+    reducer,
+    load(), // Loading done here
     composeEnhancers(),
 );
 
