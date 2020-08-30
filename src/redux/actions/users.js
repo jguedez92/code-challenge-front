@@ -12,6 +12,18 @@ export const getUsers = async() => {
     return res
 }
 
+export const getUserById = (users, id) => {
+    const user = users.find(user => user.id === id)
+    return user
+}
+
+export const getUserByEmail = (users, email) => {
+    const user = users.find(user => user.email == email)
+    return user
+}
+
+
+
 export const setUser = (user) => {
     store.dispatch({
         type: 'SET_USER',

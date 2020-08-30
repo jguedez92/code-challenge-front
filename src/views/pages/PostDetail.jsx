@@ -1,19 +1,30 @@
 import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
-import { useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom'
+
 
 import { getComments } from '../../redux/actions/Comments'
-const PostDetail = ({ postDetails, match }) => {
+import Comments from '../../components/Comments'
+import { getUserById, setUser } from '../../redux/actions/Users'
+
+const PostDetail = ({ usersList, postDetails, match }) => {
 
     useEffect(() => {
-        setPost(postDetails)
-        getComments(postDetails.id)
+        const newPostDetail = { ...postDetails, user: getUserById(usersList, postDetails.userId) }
+        setPost(newPostDetail)
+        getComments(newPostDetail.id)
     }, [match.params.id])
     const history = useHistory()
     const [post, setPost] = useState()
+    const [users, setusers] = useState()
 
     const returnPostsList = () => {
         history.push(`/posts`)
+    }
+
+    const userDetails = (user) => {
+        setUser(user)
+        history.push(`/users/${user.username}`)
     }
 
     return (
@@ -29,9 +40,12 @@ const PostDetail = ({ postDetails, match }) => {
                         <div className="card-header pt-3">
                             <h5 className="mt-2 text-primary">Datos de Post</h5>
                         </div>
-                        <div className="card-body text-justify">
+                        <div className="card-body px-5  text-justify">
                             <div className="mb-2">
-                                <strong>Autor:</strong> {post?.userId}
+                                <strong>Autor:</strong> <button type="button" className="btn btn-link"
+                                 onClick={() => userDetails(post?.user)}>
+                                    {post?.user.name}
+                                </button>
                             </div>
                             <div className="mb-2">
                                 <strong>Titulo:</strong> {post?.title}
@@ -41,7 +55,9 @@ const PostDetail = ({ postDetails, match }) => {
                             </div>
                             <hr />
                             <div>
-                                comentarios:
+                                Comentarios:
+                                <br />
+                                <Comments />
                             </div>
                         </div>
                     </div>
@@ -51,7 +67,7 @@ const PostDetail = ({ postDetails, match }) => {
     )
 }
 
-const mapStateToProps = (state) => ({ postDetails: state.posts.post });
+const mapStateToProps = (state) => ({ usersList: state.users.users, postDetails: state.posts.post });
 export default connect(mapStateToProps)(PostDetail);
 
 
