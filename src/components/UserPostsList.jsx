@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from "react"
 import { connect } from 'react-redux'
- 
+import { useHistory } from 'react-router-dom';
+import { setPost } from '../redux/actions/Posts'
 
 const UserPostsList = (userPosts) => {
-
     useEffect(() => {
-        
         setPostList(userPosts.userPosts)
     }, [])
-
     const [postList, setPostList] = useState()
-
-    const postDetails = (id) => {
-        console.log(id)
+    const history = useHistory()
+    const postDetails = (post) => {
+        setPost(post)
+        history.push(`/posts/${post.id}`)
     }
 
     return (
@@ -26,7 +25,7 @@ const UserPostsList = (userPosts) => {
                 <ul className="list-group ">
                     <div className="list-group">
                         {postList?.map(post =>
-                            <button type="button" className="list-group-item list-group-item-action" onClick={() => postDetails(post.id)}>
+                            <button type="button" className="list-group-item list-group-item-action" onClick={() => postDetails(post)}>
                                 <div>
                                     Titulo: <span className="text-primary">{post.title}</span>
                                 </div>

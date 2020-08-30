@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import { useHistory } from 'react-router-dom';
 
-
+import { getComments } from '../../redux/actions/Comments'
 const PostDetail = ({ postDetails, match }) => {
 
     useEffect(() => {
         setPost(postDetails)
-        //getUserPosts(user.id) get comments
+        getComments(postDetails.id)
     }, [match.params.id])
     const history = useHistory()
     const [post, setPost] = useState()

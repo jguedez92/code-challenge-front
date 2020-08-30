@@ -8,7 +8,6 @@ const Home = () => {
     useEffect(() => {
         getUsers()
         getPosts()
-        getComments()
     }, [])
 
     return (
