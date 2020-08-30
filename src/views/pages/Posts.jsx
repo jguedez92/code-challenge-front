@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react'
 import { connect } from 'react-redux'
 import { useHistory } from 'react-router-dom';
 
+import { setPost } from '../../redux/actions/Posts'
+
 const Posts = ({ posts }) => {
 
     const [postsList] = useState(posts);
@@ -12,10 +14,9 @@ const Posts = ({ posts }) => {
         }
     }, [])
 
-    const postDetails = (id) => {
-        console.log(id)
-        //setUser(user)
-        //history.push(`/users/${user.username}`)
+    const postDetails = (post) => {
+        setPost(post)
+        history.push(`/posts/${post.id}`)
     }
     return (
         <div className="col-12">
@@ -30,7 +31,7 @@ const Posts = ({ posts }) => {
                         <ul className="list-group ">
                             <div className="list-group">
                                 {postsList?.map(post =>
-                                    <button type="button" className="list-group-item list-group-item-action" onClick={() => postDetails(post.id)}>
+                                    <button type="button" className="list-group-item list-group-item-action" onClick={() => postDetails(post)}>
                                         <div>
                                             Titulo: <span className="text-primary">{post.title}</span>
                                         </div>

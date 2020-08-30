@@ -11,6 +11,13 @@ export const getPosts = async() => {
     });
 }
 
+export const setPost = (post) => {
+    store.dispatch({
+        type: 'SET_POST',
+        payload: post
+    })
+}
+
 export const getUserPosts = async(userId) => {
     const res = await axios.get(API_URL + 'posts/get_posts')
     const posts = res.data.posts

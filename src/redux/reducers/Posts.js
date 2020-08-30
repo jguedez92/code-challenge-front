@@ -10,6 +10,12 @@ const productReducer = (state = {}, action) => {
                 ...state,
                 userPosts: action.payload
             }
+        case 'SET_POST':
+            return {
+                ...state,
+                post: action.payload
+            }
+
         default:
             return state;
     }
