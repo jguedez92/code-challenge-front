@@ -15,7 +15,6 @@ export const getUserPosts = async(userId) => {
     const res = await axios.get(API_URL + 'posts/get_posts')
     const posts = res.data.posts
     const userPosts = posts.filter(post => post.userId === userId)
-    console.log(userPosts)
     store.dispatch({
         type: 'GET_USER_POSTS',
         payload: userPosts

@@ -1,24 +1,35 @@
 import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
+import { useHistory } from 'react-router-dom';
 
 import UserAcordeon from '../../components/UserAcordeon'
 import { getUserPosts } from '../../redux/actions/Posts'
+
+import UserPostsList from '../../components/UserPostsList'
 
 const UserDetail = ({ user, match }) => {
 
     useEffect(() => {
         setUserDetails(user)
         getUserPosts(user.id)
-        
     }, [match.params.username])
-
+    const history = useHistory()
     const [userDetails, setUserDetails] = useState()
+
+    const returnUsersList = () =>{
+        history.push(`/users`)
+    }
 
     return (
         <div className="container">
             <div className="row">
-                <div className="col-6 p-y 5">
-                    <div className="card shadow animate__animated animate__bounceInUp my-5">
+                <div className="col-12 d-flex justify-content-end">
+                    <button type="button" className="btn btn-link my-3" onClick={() => returnUsersList()}>
+                        Volver al Listado de Usuarios
+                    </button>
+                </div>
+                <div className="col-6">
+                    <div className="card shadow mb-5 animate__animated animate__bounceInUp ">
                         <div className="card-header pt-3">
                             <h5 className="mt-2 text-primary">Datos de Usuario</h5>
                         </div>
@@ -47,13 +58,13 @@ const UserDetail = ({ user, match }) => {
                     </div>
                 </div>
                 <div className="col-6">
-
+                    <UserPostsList />
                 </div>
             </div>
         </div>
     )
 }
 
-const mapStateToProps = (state) => ({ user: state.users.user });
+const mapStateToProps = (state) => ({ user: state.users.user, userPosts: state.posts.userPosts });
 export default connect(mapStateToProps)(UserDetail);
 

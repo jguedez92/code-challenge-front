@@ -7,7 +7,7 @@ import { setUser } from '../../redux/actions/Users'
 
 const Users = ({ users }) => {
 
-    const [usersList, setUsersLists] = useState(users);
+    const [usersList] = useState(users);
     const history = useHistory()
     useEffect(() => {
         if (!usersList) {
@@ -32,7 +32,7 @@ const Users = ({ users }) => {
                     <div className="card-body">
                         <ul className="list-group ">
                             <div className="list-group">
-                                {usersList.map(user =>
+                                {usersList?.map(user =>
                                     <button type="button" className="list-group-item list-group-item-action d-flex justify-content-center" onClick={() => userDetails(user)}>
                                         <div>
                                             Nombre: <span className="text-primary">{user.name}</span>
