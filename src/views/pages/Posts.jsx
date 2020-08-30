@@ -1,20 +1,27 @@
 import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import { useHistory } from 'react-router-dom'
-import { Pagination } from 'antd';
+import { Button } from 'antd';
 import { setPost } from '../../redux/actions/Posts'
 import FormPost from '../../components/FormPost'
 
 const Posts = ({ posts }) => {
 
     const [postsList, setPostList] = useState()
+    const [page, setPage] = useState(1)
+    const totalPages = (posts.length / 10)
     const history = useHistory()
     useEffect(() => {
         if (posts == {}) {
             history.push(`/`)
         }
-        setPostList(posts.slice((1 - 1) * 10, (1 * 10)))
+        console.log(page)
+        setPostList(posts.slice((page - 1) * 10, (page * 10)))
     }, [])
+
+    useEffect(() => {
+        onPageChange(page)
+    }, [page])
 
     const postDetails = (post) => {
         setPost(post)
@@ -23,7 +30,15 @@ const Posts = ({ posts }) => {
 
     const onPageChange = (value) => {
         setPostList(posts.slice((value - 1) * 10, (value * 10)))
+    }
 
+    const nextPage = () => {
+        setPage(page + 1)
+
+    }
+
+    const previousPage = () => {
+        setPage(page - 1)
     }
 
     return (
@@ -50,8 +65,12 @@ const Posts = ({ posts }) => {
                                 )}
                             </div>
                         </ul>
-                        <div className="container d-flex justify-content-center my-4">
-                            <Pagination size="small" simple={true} defaultCurrent={1} total={posts?.length} onChange={onPageChange} />
+                        <div className="container d-flex justify-content-around my-4">
+                            {page == 1 ? (<Button type="primary" disabled>Previous</Button>)
+                                : (<Button type="primary" onClick={() => previousPage()}>Anterior</Button>)}
+
+                            {page == totalPages ? (<Button type="primary" disabled>Siguiente</Button>)
+                                : (<Button type="primary" onClick={() => nextPage()} >Siguiente</Button>)}
                         </div>
                     </div>
                 </div>
@@ -62,3 +81,7 @@ const Posts = ({ posts }) => {
 
 const mapStateToProps = (state) => ({ posts: state.posts.posts });
 export default connect(mapStateToProps)(Posts);
+/*
+
+
+*/
