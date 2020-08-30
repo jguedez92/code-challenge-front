@@ -10,17 +10,17 @@ const Navbar = () => {
             </button>
             <div className="collapse navbar-collapse" id="navbarNav">
                 <ul className="navbar-nav">
-                    <li className="nav-item  font-weight-bolder" >
+                    <li className="nav-item  " >
                         <NavLink to='/' exact className="nav-link" >
                             Home
                         </NavLink>
                     </li>
-                    <li className="nav-item  font-weight-bolder">
+                    <li className="nav-item  ">
                         <NavLink to='/users' exact className="nav-link" >
                             Users
                         </NavLink>
                     </li>
-                    <li className="nav-item  font-weight-bolder">
+                    <li className="nav-item  ">
                         <NavLink to='/posts' exact className="nav-link" >
                             Posts
                         </NavLink>

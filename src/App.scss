@@ -54,8 +54,8 @@ nav {
             margin: 0 20px;
             .nav-link {
                 &:hover {
-                    font-weight: bolder;
-                    color: rgb(112, 80, 255)!important;
+                    font-weight: bolder!important;
+                    color: rgb(29, 115, 228)!important;
                 }
             }
         }
@@ -63,5 +63,5 @@ nav {
 }
 
 .card-width {
-    width: 50vh;
+    width: 70vh;
 }

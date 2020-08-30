@@ -11,3 +11,10 @@ export const getUsers = async() => {
     })
     return res
 }
+
+export const setUser = (user) => {
+    store.dispatch({
+        type: 'SET_USER',
+        payload: user
+    })
+}

@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom'
 
 import Home from './pages/Home'
 import Users from './pages/Users'
+import UserDetail from './pages/UserDetail'
 import Posts from './pages/Posts'
 
 const Views = () => {
@@ -11,6 +12,7 @@ const Views = () => {
             <Route path='/' component={Home} exact />
             <Route path='/users' component={Users} exact />
             <Route path='/posts' component={Posts} exact />
+            <Route path='/users/:username' component={UserDetail} exact />
         </Switch>
     )
 }
