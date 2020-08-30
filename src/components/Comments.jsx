@@ -16,10 +16,10 @@ const Comments = ({ usersList, commentsList }) => {
                     <div className="card-header" id="headingTwo">
                         <h2 className="mb-0">
                             <button className="btn btn-link btn-block text-left collapsed d-flex" type="button" data-toggle="collapse" data-target={`#comment${comment.id}`} aria-expanded="false" aria-controls={`#${comment.id}`}>
-                                <div className="col-4">
+                                <div className="col-6">
                                     <span className="text-muted">Email: </span>{comment.email}
                                 </div>
-                                <div className="col-8">
+                                <div className="col-6">
                                     <span className="text-muted">Titulo: </span>{comment.name}
                                 </div>
                             </button>

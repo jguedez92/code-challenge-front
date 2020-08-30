@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { Pagination } from 'antd';
 import { setPost } from '../../redux/actions/Posts'
+import FormPost from '../../components/FormPost'
 
 const Posts = ({ posts }) => {
 
@@ -28,7 +29,10 @@ const Posts = ({ posts }) => {
     return (
         <div className="col-12">
             <div className="row d-flex justify-content-center pt-2">
-                <div className="card card-posts my-5 animate__animated animate__bounceInRight">
+                <div className="col-7 my-3 d-flex justify-content-end">
+                    <FormPost />
+                </div>
+                <div className="card card-posts mb-5 animate__animated animate__bounceInRight">
                     <div className="card-header">
                         <div className="card-title mt-2">
                             <h5>Lista de Posts</h5>

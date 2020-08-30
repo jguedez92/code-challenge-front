@@ -27,3 +27,8 @@ export const getUserPosts = async(userId) => {
         payload: userPosts
     });
 }
+
+export const insertPost = async(post) => {
+    const res = await axios.post(API_URL + 'posts/insert_posts', post);
+    return res
+}
