@@ -17,13 +17,6 @@ export const getUserById = (users, id) => {
     return user
 }
 
-export const getUserByEmail = (users, email) => {
-    const user = users.find(user => user.email == email)
-    return user
-}
-
-
-
 export const setUser = (user) => {
     store.dispatch({
         type: 'SET_USER',

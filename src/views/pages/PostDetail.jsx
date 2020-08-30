@@ -16,7 +16,6 @@ const PostDetail = ({ usersList, postDetails, match }) => {
     }, [match.params.id])
     const history = useHistory()
     const [post, setPost] = useState()
-    const [users, setusers] = useState()
 
     const returnPostsList = () => {
         history.push(`/posts`)

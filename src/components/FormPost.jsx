@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from 'react'
+import React, { Fragment, useState } from 'react'
 import { connect } from 'react-redux'
 import { Modal, Form, Input, Select, notification, Button } from 'antd';
 
@@ -44,9 +44,9 @@ const FormPost = ({ users }) => {
 
     return (
         <Fragment>
-            <button type="button" className="btn btn-link" type="primary" onClick={() => showModal()}>
+            <Button type="link" onClick={() => showModal()}>
                 Agregar Post
-            </button>
+            </Button>
             <Modal title="Agregar Post" visible={visible} onOk={() => handleOk()} onCancel={() => handleCancel()}>
                 <div className="col-12">
                     <div className="row d-flex justify-content-center">

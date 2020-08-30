@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
-import { getUserByEmail } from '../redux/actions/Users'
-const Comments = ({ usersList, commentsList }) => {
+const Comments = ({  commentsList }) => {
 
     useEffect(() => {
         setComments(commentsList)
@@ -39,5 +38,5 @@ const Comments = ({ usersList, commentsList }) => {
     )
 }
 
-const mapStateToProps = (state) => ({ usersList: state.users.users, commentsList: state.comments.comments });
+const mapStateToProps = (state) => ({ commentsList: state.comments.comments });
 export default connect(mapStateToProps)(Comments);

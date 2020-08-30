@@ -12,10 +12,9 @@ const Posts = ({ posts }) => {
     const totalPages = (posts.length / 10)
     const history = useHistory()
     useEffect(() => {
-        if (posts == {}) {
+        if (posts === {}) {
             history.push(`/`)
         }
-        console.log(page)
         setPostList(posts.slice((page - 1) * 10, (page * 10)))
     }, [])
 
@@ -66,10 +65,10 @@ const Posts = ({ posts }) => {
                             </div>
                         </ul>
                         <div className="container d-flex justify-content-around my-4">
-                            {page == 1 ? (<Button type="primary" disabled>Previous</Button>)
+                            {page === 1 ? (<Button type="primary" disabled>Previous</Button>)
                                 : (<Button type="primary" onClick={() => previousPage()}>Anterior</Button>)}
 
-                            {page == totalPages ? (<Button type="primary" disabled>Siguiente</Button>)
+                            {page === totalPages ? (<Button type="primary" disabled>Siguiente</Button>)
                                 : (<Button type="primary" onClick={() => nextPage()} >Siguiente</Button>)}
                         </div>
                     </div>

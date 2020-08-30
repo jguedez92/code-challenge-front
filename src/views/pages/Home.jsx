@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react'
-
 import { getUsers } from '../../redux/actions/Users'
 import { getPosts } from '../../redux/actions/Posts'
-import { getComments } from '../../redux/actions/Comments'
 
 const Home = () => {
     useEffect(() => {
